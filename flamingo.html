@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booked Spaces</title>
+  <!-- Include Google Maps API -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Booked Spaces</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <!-- Link back to the booking page -->
+        <li><a href="booking.html">Booking</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <h2>Booked Spaces</h2>
+    <div id="booked-spaces"></div>
+    <div id="map"></div>
+  </main>
+
+  <script>
+    // Sample booked spaces data
+    var bookedSpaces = [
+      { location: "Zone A", time: "2024-03-13 14:00:00" },
+      { location: "Zone B", time: "2024-03-14 10:30:00" }
+    ];
+
+    // Display booked spaces
+    var bookedSpacesContainer = document.getElementById("booked-spaces");
+    bookedSpacesContainer.innerHTML = "<h3>Booked Spaces</h3>";
+    bookedSpaces.forEach(function(space) {
+      bookedSpacesContainer.innerHTML += "<p>Location: " + space.location + ", Time: " + space.time + "</p>";
+    });
+
+    // Google Maps integration
+    // Initialize the map
+    function initMap() {
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 10,
+        center: { lat: -34.397, lng: 150.644 } // Default center, update this according to your requirements
+      });
+      // Add markers for booked spaces
+      bookedSpaces.forEach(function(space) {
+        // Here you would convert location data to coordinates and add a marker to the map
+        // Example:
+        // var marker = new google.maps.Marker({
+        //   position: { lat: space.lat, lng: space.lng },
+        //   map: map,
+        //   title: space.location
+        // });
+      });
+    }
+  </script>
+</body>
+</html>
